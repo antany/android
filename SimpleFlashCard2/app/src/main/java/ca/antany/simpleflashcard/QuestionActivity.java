@@ -1,14 +1,20 @@
 package ca.antany.simpleflashcard;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 public class QuestionActivity extends AppCompatActivity {
+
+    //https://developer.android.com/guide/topics/providers/document-provider.html
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +24,48 @@ public class QuestionActivity extends AppCompatActivity {
 
     private static final int READ_REQUEST_CODE = 42;
 
-    public void onClickAddButton(View view){
-        createFile("*/txt","questions");
+    public void onCreateButton(View view){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter new file name");
+
+// Set up the input
+        final EditText input = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT );
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String m_Text = input.getText().toString();
+                createFile("text/plain",m_Text+".txt");
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+
+
+
+    }
+
+    public void onExportButton(View view){
+
+    }
+
+    public void onOpenButton(View view){
+
+    }
+
+    public void onListButton(View view){
+
     }
 
     private void createFile(String mimeType, String fileName) {
