@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/testView"
+    android:weightSum="1">
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="180dp">
+
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="180dp"
+       android:background="@color/colorPrimaryDark"/>
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:text="@string/app_name"
+          android:fontFamily="sans-serif-condensed"
+          android:gravity="center|left"
+          android:textSize="40dp"/>
+
+      <Button
+          android:layout_width="50dp"
+          android:layout_height="50dp"
+          android:layout_gravity="right|top"
+          android:background="@mipmap/ic_exit"
+          android:shadowRadius="1dp"
+          android:id="@+id/buttonExit"
+          />
+
+   </FrameLayout>
+
+   <android.support.v7.widget.LinearLayoutCompat
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_marginTop="75dp"
+       android:weightSum="1">
+
+      <android.support.v7.widget.LinearLayoutCompat
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center">
+         <Button
+             android:layout_width="100dp"
+             android:layout_height="100dp"
+             android:gravity="center"
+             android:background="@mipmap/ic_play"/>
+         <Button
+             android:layout_width="100dp"
+             android:layout_marginLeft="75dp"
+             android:layout_height="100dp"
+             android:background="@mipmap/ic_add"
+             android:gravity="center"/>
+
+      </android.support.v7.widget.LinearLayoutCompat>
+
+   </android.support.v7.widget.LinearLayoutCompat>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Simple Flash Card</string>
+    <string name="enter_question">Enter your question</string>
+    <string name="enter_answer">Enter you Answer</string>
+</resources>
